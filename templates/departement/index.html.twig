@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Departements List{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body {
+            background-color: rgba(255, 255, 128, .5);
+            </style>}
+{% endblock %}
+{% block body %}
+    <h1 class="mb-4">Departements List</h1>
+
+    {% if departements is not empty %}
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Numero</th>
+                        <th scope="col">Nombre de Salles</th>
+                        <th scope="col">Rang</th>
+                        <th scope="col">Placement</th>
+                        <th scope="col">Chef de Departement</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Anne de Creation</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for departement in departements %}
+                        <tr>
+                            <td>{{ departement.id }}</td>
+                            <td>{{ departement.Nom }}</td>
+                            <td>{{ departement.Numero }}</td>
+                            <td>{{ departement.NombreSalle }}</td>
+                            <td>{{ departement.Rang }}</td>
+                            <td>{{ departement.Placement }}</td>
+                            <td>{{ departement.ChefDepartement }}</td>
+                            <td>{{ departement.Description }}</td>
+                            <td>{{ departement.AnneCreation }}</td>
+                            <td>
+                                <a href="{{ path('app_departement_show', {'id': departement.id}) }}" class="btn btn-primary btn-sm">Show</a>
+                                <a href="{{ path('app_departement_edit', {'id': departement.id}) }}" class="btn btn-warning btn-sm">Edit</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="10">No records found</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            No departements available.
+        </div>
+    {% endif %}
+
+    <a href="{{ path('app_departement_new') }}" class="btn btn-success mt-3">Create New Departement</a>
+{% endblock %}

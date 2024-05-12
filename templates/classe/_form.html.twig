@@ -1,0 +1,12 @@
+{{ form_start(form) }}
+    <div class="form-group">
+        {{ form_label(form.Nom_classe, 'Nom') }}
+        {{ form_widget(form.Nom_classe, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.capacite, 'Capacite') }}
+        {{ form_widget(form.capacite, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <!-- Ajoutez d'autres champs du formulaire au besoin -->
+    <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

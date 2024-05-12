@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau département{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        body {
+            background-color: pink;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-top: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-container label {
+            font-weight: bold;
+        }
+
+        .form-container button {
+            width: 100%;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 form-container">
+                <h1 class="mb-4 text-center">Créer un nouveau département</h1>
+
+                <form method="post">
+                    <div class="form-group">
+                        <label for="nomDepartement">Nom du département</label>
+                        <input type="text" id="nomDepartement" name="nomDepartement" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="numeroDepartement">Numéro du département</label>
+                        <input type="number" id="numeroDepartement" name="numeroDepartement" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombreSalles">Nombre de salles</label>
+                        <input type="number" id="nombreSalles" name="nombreSalles" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rangDepartement">Rang du département</label>
+                        <input type="number" id="rangDepartement" name="rangDepartement" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="placementDepartement">Placement</label>
+                        <input type="text" id="placementDepartement" name="placementDepartement" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="chefDepartement">Chef de département</label>
+                        <input type="text" id="chefDepartement" name="chefDepartement" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descriptionDepartement">Description</label>
+                        <textarea id="descriptionDepartement" name="descriptionDepartement" class="form-control" rows="5"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="anneeCreation">Année de création</label>
+                        <input type="number" id="anneeCreation" name="anneeCreation" class="form-control">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Créer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

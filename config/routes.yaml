@@ -3,3 +3,36 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+app_routes:
+    path: '/'
+    controller: App\Controller\DefaultController::index
+
+liste_departements:
+    path: '/liste-departements'
+    controller: App\Controller\DepartementController::listeDepartements
+
+app_departement_new:
+    path: '/departement/new'
+    controller: 'App\Controller\DepartementController::new'
+    methods: ['GET', 'POST']
+
+app_departement_show:
+    path: '/departement/{id}'
+    controller: 'App\Controller\DepartementController::show'
+    methods: ['GET']
+
+app_departement_edit:
+    path: '/departement/{id}/edit'
+    controller: 'App\Controller\DepartementController::edit'
+    methods: ['GET', 'POST']
+
+app_departement_delete:
+    path: '/departement/{id}'
+    controller: 'App\Controller\DepartementController::delete'
+    methods: ['GET', 'DELETE', 'POST']
+
+app_departement_index:
+    path: '/departement'
+    controller: 'App\Controller\DepartementController::index'
+    methods: ['GET']

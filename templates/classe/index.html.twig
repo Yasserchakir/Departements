@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Classes {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body {
+            background-color: #74992e;        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Classes </h1>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom de la Classe</th>
+                        <th>Capacité</th>
+                        <th>Étage</th>
+                        <th>État</th>
+                        <th>Équipement</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for classe in classes %}
+                        <tr>
+                            <td>{{ classe.id }}</td>
+                            <td>{{ classe.NomClasse }}</td>
+                            <td>{{ classe.capacite }}</td>
+                            <td>{{ classe.Etage }}</td>
+                            <td>{{ classe.Etat }}</td>
+                            <td>{{ classe.Equipement }}</td>
+                            <td>
+                                <a href="{{ path('app_classe_show', {'id': classe.id}) }}" class="btn btn-info btn-sm">Show</a>
+                                <a href="{{ path('app_classe_edit', {'id': classe.id}) }}" class="btn btn-primary btn-sm">Edit</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="7">No records found</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <a href="{{ path('app_classe_new') }}" class="btn btn-success">Create New</a>
+    </div>
+{% endblock %}

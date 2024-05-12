@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du département{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body {
+            background-color: rgba(200, 200, 128, .5);
+            </style>}
+{% endblock %}
+{% block body %}
+    <h1 class="mt-4 mb-4">Détails du département</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">Id</th>
+                        <td>{{ departement.id }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nom</th>
+                        <td>{{ departement.Nom }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Numéro</th>
+                        <td>{{ departement.Numero }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nombre de salles</th>
+                        <td>{{ departement.NombreSalle }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Rang</th>
+                        <td>{{ departement.Rang }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Placement</th>
+                        <td>{{ departement.Placement }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Chef de département</th>
+                        <td>{{ departement.ChefDepartement }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td>{{ departement.Description }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Année de création</th>
+                        <td>{{ departement.AnneCreation }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <a href="{{ path('app_departement_index') }}" class="btn btn-secondary mt-4">Retour à la liste</a>
+
+    <a href="{{ path('app_departement_edit', {'id': departement.id}) }}" class="btn btn-primary mt-4">Modifier</a>
+
+    <div class="mt-4">
+        <form action="{{ path('app_departement_delete', {'id': departement.id}) }}" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer ce département ?');">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ departement.id) }}">
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+        </form>
+    </div>
+{% endblock %}

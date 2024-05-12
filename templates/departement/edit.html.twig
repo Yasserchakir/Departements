@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Departement{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body {
+            background-color: pink;        }
+    </style>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1 class="my-4">Edit Departement</h1>
+
+        <form method="post">
+            {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.Nom) }}
+                {{ form_widget(form.Nom, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.Numero) }}
+                {{ form_widget(form.Numero, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.NombreSalle) }}
+                {{ form_widget(form.NombreSalle, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.Rang) }}
+                {{ form_widget(form.Rang, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.Placement) }}
+                {{ form_widget(form.Placement, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.Chef_departement) }}
+                {{ form_widget(form.Chef_departement, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.Description) }}
+                {{ form_widget(form.Description, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.Anne_Creation) }}
+                {{ form_widget(form.Anne_Creation, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="{{ path('app_departement_index') }}" class="btn btn-secondary ml-2">Back to List</a>
+            {{ form_end(form) }}
+        </form>
+    </div>
+{% endblock %}

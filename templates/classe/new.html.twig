@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Classe{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body {
+            background-color: rgb(255, 255, 128);
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1 class="mt-4 mb-4">Créer une nouvelle Classe</h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_start(form) }}
+                    <div class="form-group">
+                        {{ form_label(form.Nom_classe, 'Nom de la Classe', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.Nom_classe, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.capacite, 'Capacité', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.capacite, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.Etage, 'Étage', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.Etage, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.Etat, 'État', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.Etat, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.Equipement, 'Équipement', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.Equipement, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.idDeaprt, 'ID Département', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.idDeaprt, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    {# Add other form fields as needed #}
+
+                    <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <a href="{{ path('app_classe_index') }}" class="btn btn-secondary">Retour à la liste</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

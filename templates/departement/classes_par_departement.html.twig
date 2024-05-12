@@ -1,0 +1,14 @@
+{# templates/departement/classes_par_departement.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Classes par Département{% endblock %}
+
+{% block body %}
+<h1>Classes de {{ departement.nom }}</h1>
+<ul>
+    {% for classe in classes %}
+        <li>{{ classe.nom }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

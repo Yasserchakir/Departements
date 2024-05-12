@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Départements{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body {
+            background-color: pink;
+            </style>}
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1 class="my-4">Liste des Départements</h1>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Numéro</th>
+                        <th scope="col">Nombre de Salles</th>
+                        <th scope="col">Rang</th>
+                        <th scope="col">Placement</th>
+                        <th scope="col">Chef de Département</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Année de Création</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for departement in departements %}
+                        <tr>
+                            <td>{{ departement.Nom }}</td>
+                            <td>{{ departement.Numero }}</td>
+                            <td>{{ departement.NombreSalle }}</td>
+                            <td>{{ departement.Rang }}</td>
+                            <td>{{ departement.Placement }}</td>
+                            <td>{{ departement.ChefDepartement }}</td>
+                            <td>{{ departement.Description }}</td>
+                            <td>{{ departement.AnneCreation }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
